@@ -1,0 +1,43 @@
+import java.util.Scanner;
+
+public class qus10 {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a number or a string: ");
+
+
+        if (sc.hasNextInt()) 
+        {
+            int num = sc.nextInt();
+            int org = num, reverse = 0;
+
+            while (num > 0) 
+            {
+                int digit = num % 10;
+                reverse = reverse * 10 + digit;
+                num /= 10;
+            }
+
+            System.out.println(org + " is " + (org == reverse ? "a palindrome." : "not a palindrome."));
+        } 
+        
+        else 
+        {
+            String str = sc.next();
+            int left = 0, right = str.length() - 1;
+            boolean pal = true;
+            while (left < right) {
+                if (str.charAt(left) != str.charAt(right)) {
+                    pal = false;
+                    break;
+                }
+                left++;
+                right--;
+            }
+            System.out.println(str + " is " + (pal ? "a palindrome." : "not a palindrome."));
+        }
+
+        sc.close();
+    }
+}
