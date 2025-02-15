@@ -1,0 +1,56 @@
+import java.util.Scanner;
+
+
+public class qus3 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+
+        int[] fac = new int[10];
+        fac[0] = 1;
+        for (int i = 1; i < 10; i++) {
+            fac[i] = fac[i - 1] * i;
+        }
+
+
+
+
+        System.out.print("lower bound: ");
+        int b1 = scanner.nextInt();
+
+
+        System.out.print("upper bound: ");
+        int b2 = scanner.nextInt();
+
+
+        System.out.println("Factorions:");
+
+
+        boolean ff = false;
+        for (int i = b1; i <= b2; i++)
+        {
+            int sum = 0, temp = i;
+            while (temp > 0)
+            {
+                int digit = temp % 10;
+                sum += fac[digit];
+                temp /= 10;
+            }
+            if (sum == i) {
+                if (ff)
+                    System.out.print(", ");
+               
+                System.out.print(i);
+                ff = true;
+            }
+        }
+
+
+        if (!ff)
+            System.out.println("None");
+
+
+        scanner.close();
+    }
+}
+
