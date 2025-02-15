@@ -1,0 +1,45 @@
+import java.util.Scanner;
+
+
+public class qus7 {
+    public static void main(String[] args) {
+        Scanner scant = new Scanner(System.in);
+
+
+        System.out.print("Enter a, b, and c: ");
+        int a = scant.nextInt();
+        int b = scant.nextInt();
+        int c = scant.nextInt();
+
+
+        scant.close();
+
+
+        int D = (b * b) - (4 * a * c);
+
+
+        if (D < 0)
+            System.out.println("No real roots");
+
+
+        else {
+
+
+            double r1 = (-b + Math.sqrt(D)) / (2.0 * a);
+            double r2 = (-b - Math.sqrt(D)) / (2.0 * a);
+
+
+            double smallest = Double.MAX_VALUE;
+            if (r1 > 0 && r2 > 0)
+                smallest = Math.min(r1, r2);
+
+
+            if (smallest > 0)
+                System.out.println("smallest positive root: " + smallest);
+           
+            else
+                System.out.println("No positive roots.");
+           
+        }
+    }
+}
